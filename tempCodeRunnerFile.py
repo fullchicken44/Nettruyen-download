@@ -1,1 +1,0 @@
-def formatUrl(url):
