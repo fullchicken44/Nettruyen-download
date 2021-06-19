@@ -7,6 +7,7 @@ from pathlib import Path
 def dl_img(img_url, chapter_folder, name):
     # img_url = "http://nhanhtruyen.org/data/images/40237/709342/009.jpg"
     filename = img_url.split('/')[-1]
+    print(filename)
     Path(name + "/" + chapter_folder).mkdir(parents=True, exist_ok=True)
 
     querystring = {"data": "net"}
@@ -43,6 +44,4 @@ def get_chapter(chapter_url, name , pageToStop):
         if page == pageToStop:
             print("Đã dừng tại chapter {}".format(page))
             return False
-
-
         dl_img("http://" + f_img_url, chapter, name)
