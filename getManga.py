@@ -10,10 +10,13 @@ r = session.get(url)
 
 # Class html phai co dau cham
 rs = r.html.find("#nt_listchapter .chapter a",first = False)
+pageToStop = int(input("Nhập chapter muốn dừng : "))
 
 for x in rs:
     chapter_url = x.attrs['href']
     manga_name = chapter_url.split('/')[-3]
-    get_chapter(chapter_url, manga_name)
+    if get_chapter(chapter_url, manga_name, pageToStop) is False:
+        break
+
     
 # print(rs)
