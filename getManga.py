@@ -15,7 +15,8 @@ def getManga():
     pageToStop = int(input("Nhập chapter muốn dừng : "))
 
     for x in rs:
-        chapter_url = x.attrs['href']
-        manga_name = chapter_url.split('/')[-3]
+
+        chapter_url = x.attrs['href']  # 'http://www.nettruyentop.com/truyen-tranh/naruto-full-color/chap-200/726556'
+        manga_name = chapter_url.split('/')[-3] # 'naruto-full-color'
         if get_chapter(chapter_url, manga_name, pageToStop) is False:
             break
