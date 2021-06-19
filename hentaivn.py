@@ -35,6 +35,10 @@ def get_chapter(chapter_url, name_truyen):
         # f_img_url = img[2:img.find('?')]  # this line is for formatting the url, remove the '//' and '?'
         chapter = chapter.attrs['alt'].split('-')[4]
         # page = int(chapter.split("-")[1])
+        download_site = str(img.split('/')[2])
+        if 'hentaivn' not in download_site:
+            print("Truyen khong duoc upload tren host hentaivn.tv")
+            continue
         dl_img(img, chapter , name_truyen)
 
 
@@ -44,6 +48,7 @@ def dl_img(img_url, chapter_folder, chapter_name):
     filename = (img_url.split('/')[-1]).split('?')[0]
     print(filename)
     Path(chapter_name + "/" + chapter_folder).mkdir(parents=True, exist_ok=True)
+
 
     querystring = {"data": "net"}
 
