@@ -5,10 +5,8 @@ from pathlib import Path
 session = HTMLSession()
 
 
-def getManga():
+def getManga(url):
     # Doi cai nay bang link truyen muon tai
-
-    url = input("Nhap link truyen ban muon tai: ")
     # url = "https://hentaivn.tv/24522-doc-truyen-oppai-share-house-no-ero-rule.html"
     r = session.get(url)
 
@@ -47,7 +45,7 @@ def dl_img(img_url, chapter_folder, chapter_name):
     # img_url = "http://nhanhtruyen.org/data/images/40237/709342/009.jpg"
     filename = (img_url.split('/')[-1]).split('?')[0]
     print(filename)
-    Path(chapter_name + "/" + chapter_folder).mkdir(parents=True, exist_ok=True)
+    Path("manga" + "/" + chapter_name + "/" + chapter_folder).mkdir(parents=True, exist_ok=True)
 
 
     querystring = {"data": "net"}
@@ -61,7 +59,7 @@ def dl_img(img_url, chapter_folder, chapter_name):
 
     response = requests.request("GET", img_url, data=payload, headers=headers, params=querystring, stream=True)
 
-    file = open(chapter_name + "/" + chapter_folder + "/" + filename, "wb")
+    file = open("manga" + "/" + chapter_name + "/" + chapter_folder + "/" + filename, "wb")
     file.write(response.content)
     file.close()
 
