@@ -33,7 +33,7 @@ def get_chapter(chapter_url, name_truyen):
     for chapter in chapter_list:
         img = chapter.attrs['src']
         # f_img_url = img[2:img.find('?')]  # this line is for formatting the url, remove the '//' and '?'
-        chapter = chapter.attrs['alt'].split('-')[4]
+        chapter = chapter.attrs['alt'].split('-')[-1]
         # page = int(chapter.split("-")[1])
         download_site = str(img.split('/')[2])
         if 'hentaivn' not in download_site:
