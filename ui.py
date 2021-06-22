@@ -1,7 +1,9 @@
 import tkinter
-import hentaivn
 import os
+
+import hentaivn
 import nettruyen
+import Nhentai
 
 mainWindow = tkinter.Tk()
 mainWindow.title("Nettruyen Downloader")
@@ -20,20 +22,32 @@ mainWindow.rowconfigure(3, weight=0)
 mainWindow.rowconfigure(4, weight=3)
 
 
+# def nhentaiMode():
+#     input_box.grid_remove()
+#     input_box_label.grid_remove()
+#
+#     nhentai_label = tkinter.Label(mainWindow, text="Input the code (6 character) ")
+#     nhentai_label.grid(row=0, column=2, sticky='nw')
+#
+#     nhentai_input = tkinter.Entry(mainWindow, width=50)
+#     nhentai_input.grid(row=1, column=2, sticky='nw')
+
+
+# Calling function
 def truyen_select():
     choice = rbValue.get()
     if choice == 1:
         nettruyen.getManga(input_box.get())
-
     elif choice == 2:
         hentaivn.getManga(input_box.get())
-
+    elif choice == 3:
+        Nhentai.get_nhentai(input_box.get())
     else:
         output = "Invalid selection"
 
 
 # Input label
-input_box_label = tkinter.Label(mainWindow, text="Input the link").grid(row=0, column=2, sticky='nw')
+input_box_label = tkinter.Label(mainWindow, text="Input the link or 6 digits").grid(row=0, column=2, sticky='nw')
 
 # Input field
 input_box = tkinter.Entry(mainWindow, width=50)
