@@ -3,8 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Nettruyen-download.iml" filepath="$PROJECT_DIR$/.idea/Nettruyen-download.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../udemy-dl/.idea/udemy-dl.iml" filepath="$PROJECT_DIR$/../udemy-dl/.idea/udemy-dl.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../udemy-downloader/.idea/udemy-downloader.iml" filepath="$PROJECT_DIR$/../udemy-downloader/.idea/udemy-downloader.iml" />
     </modules>
   </component>
 </project>
