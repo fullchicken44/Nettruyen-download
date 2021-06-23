@@ -13,9 +13,7 @@ def get_nhentai():
     rs = r.html.find(".gallerythumb", first= False)
 
     for x in rs:
-        # print("https://nhentai.net" + x.attrs['href'])
         page_img_url = "https://nhentai.net" + x.attrs['href']
-        # print(page_img_url)
         get_img_nhentai(page_img_url, folder_name)
 
     print("Download complete. Exiting...")
