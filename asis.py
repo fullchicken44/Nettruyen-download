@@ -4,8 +4,8 @@ from pathlib import Path
 
 session = HTMLSession()
 
-def get_album():
-    url = input("Enter asiansister.com link here: ")
+def get_album(url):
+    # url = input("Enter asiansister.com link here: ")
     folder_name = get_album_title(url)
     Path(folder_name).mkdir(parents=True, exist_ok=True)
     r = session.get(url)

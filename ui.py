@@ -4,6 +4,7 @@ import os
 import hentaivn
 import nettruyen
 import Nhentai
+import asis
 
 mainWindow = tkinter.Tk()
 mainWindow.title("Nettruyen Downloader")
@@ -42,6 +43,8 @@ def truyen_select():
         hentaivn.getManga(input_box.get())
     elif choice == 3:
         Nhentai.get_nhentai(input_box.get())
+    elif choice == 4:
+        asis.get_album(input_box.get())
     else:
         output = "Invalid selection"
 
@@ -74,7 +77,8 @@ rbValue = tkinter.IntVar()
 # Dictionary to create multiple buttons
 values = {"Nettruyen": "1",
           "Hentaivn": "2",
-          "Nhentai": "3"}
+          "Nhentai": "3",
+          "Asiansister": "4"}
 for (site, value) in values.items():
     tkinter.Radiobutton(optionFrame, text=site, variable=rbValue,
                         value=value).grid(row=int(value) - 1, column=0, sticky='w')
