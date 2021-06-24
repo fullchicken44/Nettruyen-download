@@ -5,14 +5,15 @@ from pathlib import Path
 session = HTMLSession()
 
 
-def get_nhentai(nhentai_code):
-    # nhentai_code = input("Nhập code 6 số: ")
+def get_nhentai():
+    nhentai_code = input("Enter the 6-digits code or the full url to start download: ")
     if len(nhentai_code) == 6:
         url = "https://nhentai.net/g/" + nhentai_code + "/"
+        folder_name = nhentai_code
     else:
         url = nhentai_code
-    folder_name = get_title(url)
-    Path("manga" + "/" + folder_name).mkdir(parents=True, exist_ok=True)
+        folder_name = nhentai_code.split('/')[-1]
+    Path("Doujin" + "/" + folder_name).mkdir(parents=True, exist_ok=True)
     r = session.get(url)
     rs = r.html.find(".gallerythumb", first=False)
 
@@ -31,7 +32,7 @@ def get_img_nhentai(page_img_url, folder_name):
         img_url = x.attrs['src']
         filename = img_url.split('/')[-1]
         response = requests.get(img_url)
-        file = open("manga" + "/" + folder_name + "/" + filename, "wb")
+        file = open("Doujin" + "/" + folder_name + "/" + filename, "wb")
         file.write(response.content)
         file.close()
 
@@ -44,7 +45,5 @@ def get_title(url):
     print(title + " is being downloaded. Please wait")
     return title
 
-
 if __name__ == '__main__':
-    url = "https://nhentai.net/g/287953/"
     get_nhentai()
