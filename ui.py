@@ -7,6 +7,7 @@ from sites.nettruyen import Nettruyen
 
 import asis
 import Nhentai
+import asis
 
 mainWindow = tkinter.Tk()
 mainWindow.title("Nettruyen Downloader")
