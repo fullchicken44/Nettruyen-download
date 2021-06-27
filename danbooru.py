@@ -5,8 +5,12 @@ from pathlib import Path
 session = HTMLSession()
 
 
-def get_danbooru_album(url):
+def get_danbooru_album():
+    url = input("Enter the page tags link: ")
     page_number = get_number_page(url)
+    # print("This tag has " + page_number + "pages, where do you want to download from")
+    # point1 = int(input("The download will start from page: "))
+    # ponit2 = int(input("and finish at: "))
     folder_name = get_folder_title(url)
     page_list = get_new_page(url, page_number)
     for x in page_list:
@@ -58,5 +62,4 @@ def get_folder_title(url):
 
 
 if __name__ == '__main__':
-    url = "https://danbooru.donmai.us/posts?tags=kase_daiki"
     get_danbooru_album()
