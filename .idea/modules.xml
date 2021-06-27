@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../Manga-downloader-oop/.idea/Manga-downloader-oop.iml" filepath="$PROJECT_DIR$/../Manga-downloader-oop/.idea/Manga-downloader-oop.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Nettruyen-download.iml" filepath="$PROJECT_DIR$/.idea/Nettruyen-download.iml" />
     </modules>
   </component>
