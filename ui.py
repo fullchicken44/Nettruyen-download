@@ -1,9 +1,13 @@
 import tkinter
 import os
 
-import hentaivn
-import nettruyen
+
+from sites.hentaivn import HentaiVn
+from sites.nettruyen import Nettruyen
+from manga import Manga
+import asis
 import Nhentai
+import danbooru
 
 mainWindow = tkinter.Tk()
 mainWindow.title("Nettruyen Downloader")
@@ -37,11 +41,31 @@ mainWindow.rowconfigure(4, weight=3)
 def truyen_select():
     choice = rbValue.get()
     if choice == 1:
-        nettruyen.getManga(input_box.get())
+        # nettruyen.getManga(input_box.get())
+        Nettruyen_session = Nettruyen(input_box.get())
+        Nettruyen_session.getManga() # work
+        Nettruyen_session.get_manga() # work
+        rs = Nettruyen_session.FindRS() # work
+        for x in rs:
+            Nettruyen_session.chapter_url.append(list(x.absolute_links)[0])
+        Nettruyen_session.get_img()
+        Nettruyen_session.download()
     elif choice == 2:
-        hentaivn.getManga(input_box.get())
+        # hentaivn.getManga(input_box.get())
+        HentaiVn_session = HentaiVn(input_box.get())
+        HentaiVn_session.getManga()
+        HentaiVn_session.get_manga()
+        rs = HentaiVn_session.FindRS()
+        for x in rs:
+            HentaiVn_session.chapter_url.append(list(x.absolute_links)[0])
+        HentaiVn_session.get_img()
+        HentaiVn_session.download()
     elif choice == 3:
         Nhentai.get_nhentai(input_box.get())
+    elif choice == 4:
+        asis.get_album(input_box.get())
+    elif choice == 5:
+        danbooru.get_danbooru_album(input_box.get())
     else:
         output = "Invalid selection"
 
@@ -74,7 +98,9 @@ rbValue = tkinter.IntVar()
 # Dictionary to create multiple buttons
 values = {"Nettruyen": "1",
           "Hentaivn": "2",
-          "Nhentai": "3"}
+          "Nhentai": "3",
+          "Asiansister": "4",
+          "Danbooru": "5"}
 for (site, value) in values.items():
     tkinter.Radiobutton(optionFrame, text=site, variable=rbValue,
                         value=value).grid(row=int(value) - 1, column=0, sticky='w')

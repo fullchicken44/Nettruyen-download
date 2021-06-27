@@ -5,8 +5,7 @@ from pathlib import Path
 session = HTMLSession()
 
 
-def get_nhentai():
-    nhentai_code = input("Enter the 6-digits code or the full url to start download: ")
+def get_nhentai(nhentai_code):
     if len(nhentai_code) == 6:
         url = "https://nhentai.net/g/" + nhentai_code + "/"
         folder_name = nhentai_code
