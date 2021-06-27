@@ -5,8 +5,7 @@ from pathlib import Path
 session = HTMLSession()
 
 
-def get_danbooru_album():
-    url = "https://danbooru.donmai.us/posts?tags=kase_daiki"
+def get_danbooru_album(url):
     page_number = get_number_page(url)
     folder_name = get_folder_title(url)
     page_list = get_new_page(url, page_number)
