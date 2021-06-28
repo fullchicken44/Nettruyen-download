@@ -43,6 +43,9 @@ def get_number_page(url):
         return page_number
     elif len(page_num) == 2:
         page_number = int(page_num[0] + page_num[1])
+    elif len(page_num) == 3:
+        page_number = int(page_num[0] + page_num[1] + page_num[2])
+        print(page_number)
         return page_number
 
 
@@ -62,4 +65,5 @@ def get_folder_title(url):
 
 
 if __name__ == '__main__':
-    get_danbooru_album()
+    # get_danbooru_album()
+    get_number_page("https://danbooru.donmai.us/posts?tags=ayakashi_rumble%21")
